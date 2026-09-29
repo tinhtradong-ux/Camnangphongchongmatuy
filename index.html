@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cẩm Nang Chung Tay Phòng, Chống Ma Túy</title>
+  <meta name="description" content="Chung tay phòng, chống tác hại của ma túy – Vì cuộc sống bình yên, hạnh phúc. Cẩm nang giáo dục kỹ năng tự bảo vệ và phòng ngừa ma túy cho thanh thiếu niên và cộng đồng.">
+  <meta name="theme-color" content="#0284c7">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            safe: {
+              50: '#ecfdf5',
+              600: '#059669',
+              700: '#047857',
+            },
+            danger: {
+              50: '#fef2f2',
+              600: '#dc2626',
+              700: '#b91c1c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- QRCode.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col pb-20 md:pb-6">
+
+  <!-- HEADER / THANH ĐIỀU HƯỚNG CỐ ĐỊNH -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-200/80 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo & Tên Web -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-emerald-600 text-white flex items-center justify-center shadow-md shadow-sky-600/20 group-hover:scale-105 transition-transform">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="block text-xs font-black uppercase tracking-wider text-sky-700">Tuyên truyền 2026</span>
+          <h1 class="text-sm sm:text-base font-extrabold text-slate-900 leading-tight">CẨM NANG PHÒNG, CHỐNG MA TÚY</h1>
+        </div>
+      </a>
+
+      <!-- Quick Actions Header (Desktop & Tablet) -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openQuizModal()" 
+                class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-50 text-sky-700 hover:bg-sky-100 font-bold text-xs transition-colors border border-sky-200">
+          <i data-lucide="help-circle" class="w-4 h-4 text-sky-600"></i>
+          Quiz Nhanh
+        </button>
+
+        <button onclick="openShareModal()" 
+                class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-xs shadow-sm transition-all">
+          <i data-lucide="share-2" class="w-4 h-4"></i>
+          <span class="hidden xs:inline">Chia sẻ & QR</span>
+        </button>
+
+        <a href="tel:113" 
+           class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-red-50 text-red-600 hover:bg-red-100 font-black text-xs transition-colors border border-red-200"
+           title="Gọi khẩn cấp 113">
+          <i data-lucide="phone" class="w-3.5 h-3.5 animate-bounce"></i>
+          <span>113</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-6xl mx-auto px-4 sm:px-6 w-full space-y-8 pt-6 pb-12">
+
+    <!-- HERO SECTION VỚI BANNER TUYÊN TRUYỀN -->
+    <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-900 via-sky-800 to-emerald-900 text-white shadow-xl shadow-sky-950/10">
+      
+      <!-- Họa tiết đồ họa nền -->
+      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-16 -bottom-16 w-80 h-80 rounded-full bg-sky-400/10 blur-3xl pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+
+      <div class="relative z-10 p-6 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+        
+        <!-- Nội dung tuyên truyền chữ -->
+        <div class="flex-1 text-center lg:text-left space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Hành động vì tương lai không ma túy
+          </div>
+
+          <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white uppercase leading-tight">
+            CẨM NANG CHUNG TAY<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-emerald-300 to-teal-200">
+              PHÒNG, CHỐNG MA TÚY
+            </span>
+          </h2>
+
+          <p class="text-sm sm:text-base lg:text-lg text-sky-100 max-w-xl font-medium leading-relaxed">
+            “Chung tay phòng, chống tác hại của ma túy – Vì cuộc sống bình yên, hạnh phúc”
+          </p>
+
+          <!-- Nút hành động nhanh trong Hero -->
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+            <button onclick="document.getElementById('five-messages-section').scrollIntoView({behavior: 'smooth'})"
+                    class="px-5 py-2.5 rounded-xl bg-white text-sky-900 hover:bg-sky-50 font-bold text-sm shadow-md transition-all flex items-center gap-2">
+              <i data-lucide="check-square" class="w-4 h-4 text-emerald-600"></i>
+              5 Thông điệp nhớ
+            </button>
+            <button onclick="openQuizModal()"
+                    class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-bold text-sm shadow-md transition-all flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+              Thử thách Quiz (5 câu)
+            </button>
+          </div>
+        </div>
+
+        <!-- Banner Minh Họa Trực Quan -->
+        <div class="w-full max-w-sm lg:max-w-md flex-shrink-0">
+          <div class="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-white/15">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+              </div>
+              <span class="text-xs font-bold text-emerald-300 tracking-wider uppercase">Cảnh Giác Cao Độ</span>
+            </div>
+
+            <div class="space-y-2.5 text-xs sm:text-sm">
+              <div class="p-3 bg-red-500/20 border border-red-500/30 rounded-xl flex items-center gap-3 text-red-200">
+                <i data-lucide="alert-octagon" class="w-5 h-5 flex-shrink-0 text-red-400"></i>
+                <span>Cảnh giác ma túy ngụy trang: <strong>Nước vui, Bóng cười, Cỏ Mỹ, Pod Chill</strong></span>
+              </div>
+              <div class="p-3 bg-emerald-500/20 border border-emerald-500/30 rounded-xl flex items-center gap-3 text-emerald-200">
+                <i data-lucide="shield" class="w-5 h-5 flex-shrink-0 text-emerald-400"></i>
+                <span>Trang bị kỹ năng: <strong>Từ chối dứt khoát - Báo cơ quan công an 113</strong></span>
+              </div>
+            </div>
+
+            <div class="text-center pt-1 text-[11px] text-sky-200/80">
+              Vì bản thân - Vì gia đình - Vì bình yên xã hội
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THANH TÌM KIẾM NHANH NỘI DUNG -->
+    <div class="relative max-w-2xl mx-auto">
+      <div class="relative flex items-center">
+        <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none"></i>
+        <input type="text" 
+               id="search-input" 
+               placeholder="Tìm nhanh nội dung (nước vui, ngáo đá, kỹ năng từ chối, hotline 113...)"
+               class="w-full pl-12 pr-10 py-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all">
+        <button onclick="clearSearch()" class="absolute right-3 p-1 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 5 NÚT LỚN CHUYÊN MỤC CHÍNH -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-lg sm:text-xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-2">
+            <span class="w-2.5 h-6 bg-sky-600 rounded-full inline-block"></span>
+            5 Chuyên Mục Cốt Lõi
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500">Chạm vào từng mục để xem tài liệu, hình thức nhận diện và kỹ năng chi tiết</p>
+        </div>
+      </div>
+
+      <!-- Grid 5 Thẻ Lớn (Rendered by app.js) -->
+      <div id="main-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <!-- Render bằng app.js -->
+      </div>
+    </section>
+
+    <!-- MỤC: 5 THÔNG ĐIỆP NHỚ -->
+    <section id="five-messages-section" class="scroll-mt-20 space-y-4">
+      <div class="bg-gradient-to-r from-sky-700 to-emerald-700 rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/20 pb-5">
+          <div class="space-y-1">
+            <span class="inline-block px-3 py-0.5 rounded-full text-xs font-bold uppercase bg-emerald-400/20 text-emerald-300 border border-emerald-400/30">
+              Quy tắc vàng
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-black tracking-tight uppercase">5 THÔNG ĐIỆP NHỚ</h3>
+            <p class="text-xs sm:text-sm text-sky-100">
+              Khắc sâu 5 nguyên tắc cốt lõi để bảo vệ bản thân và gia đình trước mọi cám dỗ ma túy.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-white/15 self-start sm:self-auto">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-300"></i>
+            <div>
+              <div class="text-[11px] uppercase tracking-wider text-sky-200 font-bold">Cam kết của bạn</div>
+              <div id="pledge-count" class="text-lg font-black text-white">0/5</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 Cards Thông điệp (Rendered by app.js) -->
+        <div id="five-messages-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Render bằng app.js -->
+        </div>
+
+        <div class="p-4 bg-white/10 rounded-2xl text-center text-xs sm:text-sm text-sky-100 border border-white/10">
+          💡 Hãy chạm vào từng thông điệp để đánh dấu cam kết ghi nhớ và bảo vệ bản thân trọn đời!
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BANNER KHẨN CẤP: ĐƯỜNG DÂY NÓNG 24/7 -->
+    <section class="bg-gradient-to-br from-amber-500 to-red-600 rounded-3xl p-6 sm:p-8 text-white shadow-lg">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase bg-white/20 text-white">
+            <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+            Trợ giúp khẩn cấp 24/7
+          </span>
+          <h3 class="text-2xl font-black tracking-tight">KHI PHÁT HIỆN HIỂM HỌA MA TÚY - ĐỪNG CHẦN CHỪ!</h3>
+          <p class="text-xs sm:text-sm text-amber-100 max-w-xl">
+            Bảo vệ danh tính người báo tin. Hãy liên hệ ngay các đường dây nóng để được bảo vệ và can thiệp kịp thời.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a href="tel:113" 
+             class="px-5 py-3 rounded-2xl bg-white text-red-700 hover:bg-red-50 font-black text-base shadow-lg transition-transform active:scale-95 flex items-center gap-2">
+            <i data-lucide="phone-call" class="w-5 h-5 text-red-600"></i>
+            <span>113 (Cảnh sát)</span>
+          </a>
+          <a href="tel:111" 
+             class="px-5 py-3 rounded-2xl bg-white text-blue-700 hover:bg-blue-50 font-black text-base shadow-lg transition-transform active:scale-95 flex items-center gap-2">
+            <i data-lucide="phone" class="w-5 h-5 text-blue-600"></i>
+            <span>111 (Bảo vệ trẻ em)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER QUIZ TRẮC NGHIỆM -->
+    <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-5">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-emerald-500 text-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-sky-500/20">
+          <i data-lucide="brain-circuit" class="w-8 h-8"></i>
+        </div>
+        <div class="space-y-1">
+          <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-sky-100 text-sky-800">
+            Trắc nghiệm nhanh
+          </span>
+          <h4 class="text-xl font-black text-slate-900">Kiểm tra hiểu biết với bộ 5 câu hỏi tình huống</h4>
+          <p class="text-xs sm:text-sm text-slate-500">Đánh giá khả năng nhận biết cạm bẫy và nhận huy hiệu Tuyên truyền viên xuất sắc.</p>
+        </div>
+      </div>
+
+      <button onclick="openQuizModal()" 
+              class="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 active:scale-95 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 flex-shrink-0">
+        <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+        Bắt đầu làm Quiz
+      </button>
+    </section>
+
+    <!-- BANNER CHIA SẺ & MÃ QR CODE -->
+    <section class="bg-slate-100 rounded-3xl p-6 sm:p-8 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1 text-center md:text-left">
+        <h4 class="text-lg font-bold text-slate-900">Chung tay lan tỏa cẩm nang tới trường học & gia đình</h4>
+        <p class="text-xs sm:text-sm text-slate-600">Mỗi lượt chia sẻ của bạn là một lá chắn bảo vệ thêm một người trước hiểm họa ma túy.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="openShareModal()" 
+                class="px-5 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-sm shadow-md transition-all flex items-center gap-2">
+          <i data-lucide="qr-code" class="w-5 h-5"></i>
+          Mở mã QR & Chia sẻ
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-8 px-4 text-center text-xs text-slate-500 space-y-2">
+    <div class="font-bold text-slate-700 text-sm">
+      CẨM NANG CHUNG TAY PHÒNG, CHỐNG MA TÚY
+    </div>
+    <p>Chung tay phòng, chống tác hại của ma túy – Vì cuộc sống bình yên, hạnh phúc.</p>
+    <p class="text-[11px] text-slate-400">
+      Cẩm nang mang mục đích tuyên truyền giáo dục phi lợi nhuận. Tuyệt đối không hướng dẫn sử dụng, mua bán hay sản xuất chất cấm.
+    </p>
+  </footer>
+
+  <!-- MOBILE BOTTOM NAVIGATION (Thanh điều hướng nhanh ngón tay cái trên điện thoại) -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 glass-nav border-t border-slate-200 z-30 px-2 py-2 flex items-center justify-around pb-safe">
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="flex flex-col items-center gap-1 p-1 text-sky-700 font-bold text-[10px]">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span>Trang chủ</span>
+    </button>
+    <button onclick="document.getElementById('five-messages-section').scrollIntoView({behavior: 'smooth'})" class="flex flex-col items-center gap-1 p-1 text-slate-600 hover:text-sky-600 font-medium text-[10px]">
+      <i data-lucide="check-square" class="w-5 h-5"></i>
+      <span>5 Thông điệp</span>
+    </button>
+    <button onclick="openQuizModal()" class="flex flex-col items-center gap-1 p-1 text-slate-600 hover:text-sky-600 font-medium text-[10px]">
+      <i data-lucide="award" class="w-5 h-5"></i>
+      <span>Quiz</span>
+    </button>
+    <button onclick="openShareModal()" class="flex flex-col items-center gap-1 p-1 text-slate-600 hover:text-sky-600 font-medium text-[10px]">
+      <i data-lucide="share-2" class="w-5 h-5"></i>
+      <span>Mã QR</span>
+    </button>
+    <a href="tel:113" class="flex flex-col items-center gap-1 p-1 text-red-600 font-bold text-[10px]">
+      <i data-lucide="phone-call" class="w-5 h-5"></i>
+      <span>Gọi 113</span>
+    </a>
+  </nav>
+
+  <!-- MODAL XEM CHI TIẾT CHUYÊN MỤC -->
+  <div id="topic-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 sm:p-6 flex items-center justify-center">
+    <div class="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden modal-enter flex flex-col max-h-[90vh]">
+      
+      <!-- Modal Header -->
+      <div id="modal-header" class="p-6 bg-gradient-to-r from-sky-600 to-cyan-600 text-white flex items-center justify-between flex-shrink-0">
+        <div>
+          <span id="modal-topic-number" class="text-xs uppercase font-extrabold tracking-wider text-white/80 block">
+            CHUYÊN MỤC
+          </span>
+          <h3 id="modal-topic-title" class="text-xl sm:text-2xl font-black">
+            Tiêu đề
+          </h3>
+        </div>
+        <button onclick="closeTopicModal()" class="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div id="modal-topic-content" class="overflow-y-auto flex-1 divide-y divide-slate-100">
+        <!-- Render từ app.js -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between flex-shrink-0">
+        <button onclick="openShareModal()" class="text-xs font-semibold text-sky-600 hover:underline flex items-center gap-1.5">
+          <i data-lucide="share-2" class="w-4 h-4"></i>
+          Chia sẻ mục này
+        </button>
+        <button onclick="closeTopicModal()" class="px-5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 font-bold text-xs text-slate-800 transition-colors">
+          Đóng cửa sổ
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL QUIZ TRẮC NGHIỆM -->
+  <div id="quiz-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 sm:p-6 flex items-center justify-center">
+    <div class="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden modal-enter flex flex-col max-h-[90vh]">
+      
+      <div class="p-5 bg-gradient-to-r from-sky-600 to-emerald-600 text-white flex items-center justify-between flex-shrink-0">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="help-circle" class="w-6 h-6"></i>
+          <h3 class="text-lg font-black uppercase">QUIZ NHANH PHÒNG CHỐNG MA TÚY</h3>
+        </div>
+        <button onclick="closeQuizModal()" class="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="quiz-body" class="p-6 overflow-y-auto flex-1">
+        <!-- Render từ app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CHIA SẺ & MÃ QR CODE -->
+  <div id="share-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 sm:p-6 flex items-center justify-center">
+    <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden modal-enter p-6 space-y-6 text-center">
+      
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+          <i data-lucide="share-2" class="w-5 h-5 text-emerald-600"></i>
+          CHIA SẺ CẨM NANG
+        </h3>
+        <button onclick="closeShareModal()" class="p-1.5 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs sm:text-sm text-slate-600">
+          Quét mã QR bằng Camera điện thoại hoặc Zalo để mở nhanh cẩm nang trên thiết bị di động:
+        </p>
+        
+        <!-- Khung hiển thị QR Code -->
+        <div class="flex justify-center p-4 bg-slate-50 rounded-2xl border border-slate-200">
+          <div id="qrcode-canvas-container" class="p-2 bg-white rounded-xl shadow-sm"></div>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="space-y-2.5">
+        <button onclick="nativeShare()" 
+                class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          Gửi qua Zalo / Facebook / Tin nhắn
+        </button>
+
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="copyShareLink()" 
+                  class="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+            <i data-lucide="copy" class="w-4 h-4"></i>
+            Sao chép Link
+          </button>
+          <button onclick="downloadQRCode()" 
+                  class="py-2.5 px-3 rounded-xl bg-sky-50 hover:bg-sky-100 active:scale-95 text-sky-700 font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            Tải mã QR
+          </button>
+        </div>
+      </div>
+
+      <p class="text-[11px] text-slate-400">
+        Bạn có thể in mã QR này để dán tại bảng tin trường học, lớp học hoặc khu dân cư.
+      </p>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-24 md:bottom-8 right-4 z-50 transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none">
+    <div class="bg-slate-900/95 text-white text-xs sm:text-sm font-semibold px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 backdrop-blur-md border border-slate-700">
+      <i id="toast-icon" data-lucide="info" class="w-4 h-4 text-emerald-400"></i>
+      <span id="toast-text">Thông báo</span>
+    </div>
+  </div>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
